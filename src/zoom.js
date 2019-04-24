@@ -301,7 +301,7 @@ export default function() {
   function touchstarted() {
     if (!filter.apply(this, arguments)) return;
     var g = gesture(this, arguments),
-        touches = event.changedTouches,
+        touches = !g.touch0 && !g.touch1 ? event.touches : event.changedTouches,
         started,
         n = touches.length, i, t, p;
 
